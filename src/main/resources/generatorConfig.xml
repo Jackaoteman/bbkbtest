@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+	<!-- mysql驱动包位置 -->
+	<!--<classPathEntry location="D:\soft\mybatisGenerator\lib\mysql-connector-java-5.1.26.jar" />-->
+
+	<context id="MysqlTables" targetRuntime="MyBatis3">
+		<property name="javaFileEncoding" value="UTF-8"/>
+		<commentGenerator>
+			<property name="suppressAllComments" value="false"/>
+			<property name="suppressDate" value="true"/>
+		</commentGenerator>
+		<!-- 数据库连接配置 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://rm-bp10i23m8pr03f6n8.mysql.rds.aliyuncs.com:3306/bbkb_elearning" userId="root_01"
+						password="Bababusdev_">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+		<!-- 指定生成model的路径 -->
+		<javaModelGenerator targetPackage="com.liyue.liyuetest.Domain"
+							targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 指定生成Mapper的路径 -->
+		<sqlMapGenerator targetPackage="sqlmap"
+						 targetProject="src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- 指定生成dao的路径 -->
+		<javaClientGenerator type="XMLMAPPER"
+							 targetPackage="com.liyue.liyuetest.Dao" targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!--
+            <table schema="dispatch" tableName="TB_INSURANCE_INFO" domainObjectName="InsuranceInfo"
+                    enableCountByExample="false" enableUpdateByExample="false"
+                    enableDeleteByExample="false" enableSelectByExample="false"
+                    selectByExampleQueryId="false">
+        -->
+		<table schema="dispatch" tableName="tb_cw_topic" domainObjectName="Company"
+			   enableCountByExample="false" enableUpdateByExample="false"
+			   enableDeleteByExample="false" enableSelectByExample="true"
+			   selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="false" />
+		</table>
+	</context>
+</generatorConfiguration>
